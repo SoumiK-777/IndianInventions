@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+{% include 'navbar.html' %}
+<head>
+
+    <title>Inventions</title>
+    <style>
+        /* Add some basic styles for the list view */
+        body {
+            background-image: url('https://media.istockphoto.com/id/1297933144/vector/vector-illustration-of-indian-tricolor-flag-background.jpg?s=612x612&w=0&k=20&c=tCd-ZdLMNHw_KAMZTX9zStqEDdWzXlS6FYrvjrZIswk=');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover
+        }
+
+        #product-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .product-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .product-image {
+            flex: 0 0 100px;
+            margin-right: 10px;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .product-details {
+            flex: 1;
+        }
+
+        .product-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .product-description {
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Search Results</h1>
+
+    <ul id="product-list">
+        {% for invention in inventions %}
+        <li class="product-item">
+            <div class="product-image">
+                <img src="../static/images/{{invention['Path']}}" alt="Product 1" />
+            </div>
+            <div class="product-details">
+                <h2 class="product-title">{{invention['Name']}} : {{invention['Inventor']}}</h2>
+                <p class="product-description">Invention Year:{{invention['Year']}}</p>
+                <p class="product-description">{{invention['Details1']}}</p>
+                <p class="product-description">{{invention['Details2']}}</p>
+            </div>
+        </li>
+        {% endfor %}
+        <!-- Add more product items as needed -->
+    </ul>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Add Invention</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/addInvention.css')}}" />
+</head>
+
+<body>
+    <section class="container">
+        <header>Invention Details</header>
+        <form action="{{url_for('dashboard')}}" method="POST" class="form" enctype="multipart/form-data">
+            <div class="input-box">
+                <label>Invention Name</label>
+                <input type="text" placeholder="Enter invention name" name="name" required />
+            </div>
+
+            <div class="input-box">
+                <label>Inventor Name</label>
+                <input type="text" placeholder="Enter inventor name" name="inventor" required />
+            </div>
+
+            <div class="column">
+                <div class="input-box">
+                    <label>Year of Invention</label>
+                    <input type="number" name="year" min="100" max="2023" value="" placeholder="Enter invention year" required />
+                </div>
+            </div>
+            <div class="input-box address">
+                <label>Details</label>
+                <input type="text" name="details1" placeholder="Enter details" required />
+                <input type="text" name="details2" placeholder="Enter details line 2" required />
+                <div class="column">
+                    <div class="select-box">
+                        <select name="category" required>
+                            <option hidden>Category</option>
+                            <option value="Physics">Physics</option>
+                            <option value="Chemistry">Chemistry</option>
+                            <option value="Biology">Biology</option>
+                        </select>
+                    </div>
+                </div>
+                <input type="file" name="image" accept="image/*" required>
+            </div>
+            <button>Submit</button>
+        </form>
+        <a href="{{url_for('index')}}">Home</a>
+        <a href="{{url_for('logout')}}">LogOut</a>
+    </section>
+</body>
+
+</html>
